@@ -11,10 +11,7 @@ contract BitPackLibTest is Test {
         bpli = new BitPackLibMock();
     }
 
-    // ============================================================
-    //                         PACK TESTS
-    // ============================================================
-
+    // PACK/UNPACK BOOL
     function testPackBool() public {
         (bytes32 newWord, uint256 freeBitIndex) = bpli.packBool(bytes32(0), true, 0);
 
@@ -22,13 +19,15 @@ contract BitPackLibTest is Test {
         assertEq(freeBitIndex, 1);
     }
 
-    // ============================================================
-    //                        UNPACK TESTS
-    // ============================================================
-
     function testUnpackBool() public {
         (bytes32 newWord, ) = bpli.packBool(bytes32(0), true, 0);
         bool value = bpli.unpackBool(newWord, 0);
         assertEq(value, true);
+    }
+
+    function testPackUnpackBool(bool value, uint256 bitIndex) public {
+        (bytes32 newWord, ) = bpli.packBool(bytes32(0), value, bitIndex);
+        bool value = bpli.unpackBool(newWord, bitIndex);
+        assertEq(value, value);
     }
 }
