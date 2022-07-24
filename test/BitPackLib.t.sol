@@ -26,8 +26,9 @@ contract BitPackLibTest is Test {
     }
 
     function testPackUnpackBool(bool value, uint8 bitIndex) public {
+        vm.assume(bitIndex < 255);
         (bytes32 newWord, ) = bpli.packBool(bytes32(0), value, bitIndex);
-        bool value = bpli.unpackBool(newWord, bitIndex);
-        assertEq(value, value);
+        bool newValue = bpli.unpackBool(newWord, bitIndex);
+        assertEq(newValue, value);
     }
 }
