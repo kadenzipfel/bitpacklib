@@ -20,6 +20,10 @@ contract BitPackLibMock {
         return BitPackLib.packUint8(word, value, bitIndex);
     }
 
+    function packUint16(bytes32 word, uint16 value, uint256 bitIndex) public pure returns (bytes32 newWord, uint256 freeBitIndex) {
+        return BitPackLib.packUint16(word, value, bitIndex);
+    }
+
     // ============================================================
     //                       UNPACK METHODS
     // ============================================================
@@ -34,5 +38,9 @@ contract BitPackLibMock {
 
     function unpackUint8(bytes32 word, uint256 bitIndex) public pure returns (uint8 value) {
         return BitPackLib.unpackUint8(word, bitIndex);
+    }
+
+    function unpackUint16(bytes32 word, uint256 bitIndex) public pure returns (uint16 value) {
+        return BitPackLib.unpackUint16(word, bitIndex);
     }
 }

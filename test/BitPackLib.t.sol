@@ -81,4 +81,24 @@ contract BitPackLibTest is Test {
         uint8 newValue = bpli.unpackUint8(newWord, bitIndex);
         assertEq(newValue, value);
     }
+
+    function testPackUint16() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packUint16(bytes32(0), uint16(0x4545), 0);
+
+        assertEq(newWord, 0x4545000000000000000000000000000000000000000000000000000000000000);
+        assertEq(freeBitIndex, 16);
+    }
+
+    function testUnpackUint16() public {
+        (bytes32 newWord, ) = bpli.packUint16(bytes32(0), uint16(0x4545), 0);
+        uint16 value = bpli.unpackUint16(newWord, 0);
+        assertEq(value, uint16(0x4545));
+    }
+
+    function testPackUnpackUint16(uint16 value, uint16 bitIndex) public {
+        vm.assume(bitIndex <= 240);
+        (bytes32 newWord, ) = bpli.packUint16(bytes32(0), value, bitIndex);
+        uint16 newValue = bpli.unpackUint16(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
 }

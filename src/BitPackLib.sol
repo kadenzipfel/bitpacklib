@@ -33,6 +33,15 @@ library BitPackLib {
         }
     }
 
+    // Assumes bitIndex <= 240
+    function packUint16(bytes32 word, uint16 value, uint256 bitIndex) internal pure returns (bytes32 newWord, uint256 freeBitIndex) {
+        assembly {
+            let shift := sub(0xF0, bitIndex)
+            newWord := or(word, shl(shift, value))
+            freeBitIndex := add(bitIndex, 0x10)
+        }
+    }
+
     // ============================================================
     //                       UNPACK METHODS
     // ============================================================
@@ -58,6 +67,14 @@ library BitPackLib {
         assembly {
             let shift := sub(0xF8, bitIndex)
             value := shr(shift, and(shl(shift, shr(0xF8, not(0))), word))
+        }
+    }
+
+    // Assumes bitIndex is <= 240
+    function unpackUint16(bytes32 word, uint256 bitIndex) internal pure returns (uint16 value) {
+        assembly {
+            let shift := sub(0xF0, bitIndex)
+            value := shr(shift, and(shl(shift, shr(0xF0, not(0))), word))
         }
     }
 }
