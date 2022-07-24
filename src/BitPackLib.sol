@@ -24,6 +24,7 @@ library BitPackLib {
         }
     }
 
+    // Assumes bitIndex <= 248
     function packUint8(bytes32 word, uint8 value, uint256 bitIndex) internal pure returns (bytes32 newWord, uint256 freeBitIndex) {
         assembly {
             let shift := sub(0xF8, bitIndex)
@@ -49,6 +50,14 @@ library BitPackLib {
         assembly {
             let shift := sub(0x60, bitIndex)
             value := shr(shift, and(shl(shift, shr(0x60, not(0))), word))
+        }
+    }
+
+    // Assumes bitIndex is <= 248
+    function unpackUint8(bytes32 word, uint256 bitIndex) internal pure returns (uint8 value) {
+        assembly {
+            let shift := sub(0xF8, bitIndex)
+            value := shr(shift, and(shl(shift, shr(0xF8, not(0))), word))
         }
     }
 }

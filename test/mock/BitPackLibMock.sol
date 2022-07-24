@@ -31,4 +31,8 @@ contract BitPackLibMock {
     function unpackAddress(bytes32 word, uint256 bitIndex) public pure returns (address value) {
         return BitPackLib.unpackAddress(word, bitIndex);
     }
+
+    function unpackUint8(bytes32 word, uint256 bitIndex) public pure returns (uint8 value) {
+        return BitPackLib.unpackUint8(word, bitIndex);
+    }
 }

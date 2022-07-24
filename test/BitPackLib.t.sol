@@ -62,4 +62,10 @@ contract BitPackLibTest is Test {
         assertEq(newWord, 0x4500000000000000000000000000000000000000000000000000000000000000);
         assertEq(freeBitIndex, 8);
     }
+
+    function testUnpackUint8() public {
+        (bytes32 newWord, ) = bpli.packUint8(bytes32(0), uint8(0x45), 0);
+        uint8 value = bpli.unpackUint8(newWord, 0);
+        assertEq(value, uint8(0x45));
+    }
 }
