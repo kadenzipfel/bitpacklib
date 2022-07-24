@@ -24,6 +24,14 @@ library BitPackLib {
         }
     }
 
+    function packUint8(bytes32 word, uint8 value, uint256 bitIndex) internal pure returns (bytes32 newWord, uint256 freeBitIndex) {
+        assembly {
+            let shift := sub(0xF8, bitIndex)
+            newWord := or(word, shl(shift, value))
+            freeBitIndex := add(bitIndex, 0x08)
+        }
+    }
+
     // ============================================================
     //                       UNPACK METHODS
     // ============================================================
