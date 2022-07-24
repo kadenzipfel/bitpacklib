@@ -12,6 +12,10 @@ contract BitPackLibMock {
         return BitPackLib.packBool(word, value, bitIndex);
     }
 
+    function packAddress(bytes32 word, address value, uint256 bitIndex) public pure returns (bytes32 newWord, uint256 freeBitIndex) {
+        return BitPackLib.packAddress(word, value, bitIndex);
+    }
+
     // ============================================================
     //                       UNPACK METHODS
     // ============================================================

@@ -6,11 +6,21 @@ library BitPackLib {
     //                        PACK METHODS
     // ============================================================
     
+    // Assumes bitIndex < 256
     function packBool(bytes32 word, bool value, uint256 bitIndex) internal pure returns (bytes32 newWord, uint256 freeBitIndex) {
         assembly {
             let shift := sub(255, bitIndex)
             newWord := or(word, shl(shift, value))
             freeBitIndex := add(bitIndex, 1)
+        }
+    }
+
+    // Assumes bitIndex < 96
+    function packAddress(bytes32 word, address value, uint256 bitIndex) internal pure returns (bytes32 newWord, uint256 freeBitIndex) {
+        assembly {
+            let shift := sub(96, bitIndex)
+            newWord := or(word, shl(shift, value))
+            freeBitIndex := add(bitIndex, 160)
         }
     }
 

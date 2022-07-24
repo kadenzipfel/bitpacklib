@@ -31,4 +31,12 @@ contract BitPackLibTest is Test {
         bool newValue = bpli.unpackBool(newWord, bitIndex);
         assertEq(newValue, value);
     }
+
+    // PACK/UNPACK ADDRESS
+    function testPackAddress() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packAddress(bytes32(0), address(0xBEeFbeefbEefbeEFbeEfbEEfBEeFbeEfBeEfBeef), 0);
+
+        assertEq(newWord, 0xBEEFBEEFBEEFBEEFBEEFBEEFBEEFBEEFBEEFBEEF000000000000000000000000);
+        assertEq(freeBitIndex, 160);
+    }
 }
