@@ -1800,4 +1800,12 @@ contract BitPackLibTest is Test {
         int248 newValue = bpli.unpackInt248(newWord, bitIndex);
         assertEq(newValue, value);
     }
+
+    function testPackUnpackStuff() public {
+        (bytes32 newWord1, uint256 bitIndex1) = bpli.packUint8(bytes32(0), uint8(0x23), 0);
+        (bytes32 newWord2, uint256 bitIndex2) = bpli.packAddress(newWord1, address(0xBEeFbeefbEefbeEFbeEfbEEfBEeFbeEfBeEfBeef), bitIndex1);
+        (bytes32 newWord3, uint256 bitIndex3) = bpli.packInt32(newWord2, int32(0x12345678), bitIndex2);
+        (bytes32 newWord4,) = bpli.packUint56(newWord3, uint56(0x98765432109876), bitIndex3);
+        assertEq(newWord4, bytes32(0x23BEEFBEEFBEEFBEEFBEEFBEEFBEEFBEEFBEEFBEEF1234567898765432109876));
+    }
 }
