@@ -272,6 +272,254 @@ contract BitPackLibMock {
         return BitPackLib.packUint248(word, value, bitIndex);
     }
 
+    function packInt8(bytes32 word, int8 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt8(word, value, bitIndex);
+    }
+
+    function packInt16(bytes32 word, int16 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt16(word, value, bitIndex);
+    }
+
+    function packInt24(bytes32 word, int24 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt24(word, value, bitIndex);
+    }
+
+    function packInt32(bytes32 word, int32 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt32(word, value, bitIndex);
+    }
+
+    function packInt40(bytes32 word, int40 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt40(word, value, bitIndex);
+    }
+
+    function packInt48(bytes32 word, int48 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt48(word, value, bitIndex);
+    }
+
+    function packInt56(bytes32 word, int56 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt56(word, value, bitIndex);
+    }
+
+    function packInt64(bytes32 word, int64 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt64(word, value, bitIndex);
+    }
+
+    function packInt72(bytes32 word, int72 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt72(word, value, bitIndex);
+    }
+
+    function packInt80(bytes32 word, int80 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt80(word, value, bitIndex);
+    }
+
+    function packInt88(bytes32 word, int88 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt88(word, value, bitIndex);
+    }
+
+    function packInt96(bytes32 word, int96 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt96(word, value, bitIndex);
+    }
+
+    function packInt104(bytes32 word, int104 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt104(word, value, bitIndex);
+    }
+
+    function packInt112(bytes32 word, int112 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt112(word, value, bitIndex);
+    }
+
+    function packInt120(bytes32 word, int120 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt120(word, value, bitIndex);
+    }
+
+    function packInt128(bytes32 word, int128 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt128(word, value, bitIndex);
+    }
+
+    function packInt136(bytes32 word, int136 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt136(word, value, bitIndex);
+    }
+
+    function packInt144(bytes32 word, int144 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt144(word, value, bitIndex);
+    }
+
+    function packInt152(bytes32 word, int152 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt152(word, value, bitIndex);
+    }
+
+    function packInt160(bytes32 word, int160 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt160(word, value, bitIndex);
+    }
+
+    function packInt168(bytes32 word, int168 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt168(word, value, bitIndex);
+    }
+
+    function packInt176(bytes32 word, int176 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt176(word, value, bitIndex);
+    }
+
+    function packInt184(bytes32 word, int184 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt184(word, value, bitIndex);
+    }
+
+    function packInt192(bytes32 word, int192 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt192(word, value, bitIndex);
+    }
+
+    function packInt200(bytes32 word, int200 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt200(word, value, bitIndex);
+    }
+
+    function packInt208(bytes32 word, int208 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt208(word, value, bitIndex);
+    }
+
+    function packInt216(bytes32 word, int216 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt216(word, value, bitIndex);
+    }
+
+    function packInt224(bytes32 word, int224 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt224(word, value, bitIndex);
+    }
+
+    function packInt232(bytes32 word, int232 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt232(word, value, bitIndex);
+    }
+
+    function packInt240(bytes32 word, int240 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt240(word, value, bitIndex);
+    }
+
+    function packInt248(bytes32 word, int248 value, uint256 bitIndex)
+        public
+        pure
+        returns (bytes32 newWord, uint256 freeBitIndex)
+    {
+        return BitPackLib.packInt248(word, value, bitIndex);
+    }
+
     // ============================================================
     //                       UNPACK METHODS
     // ============================================================
@@ -538,5 +786,253 @@ contract BitPackLibMock {
         returns (uint248 value)
     {
         return BitPackLib.unpackUint248(word, bitIndex);
+    }
+
+    function unpackInt8(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int8 value)
+    {
+        return BitPackLib.unpackInt8(word, bitIndex);
+    }
+
+    function unpackInt16(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int16 value)
+    {
+        return BitPackLib.unpackInt16(word, bitIndex);
+    }
+
+    function unpackInt24(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int24 value)
+    {
+        return BitPackLib.unpackInt24(word, bitIndex);
+    }
+
+    function unpackInt32(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int32 value)
+    {
+        return BitPackLib.unpackInt32(word, bitIndex);
+    }
+
+    function unpackInt40(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int40 value)
+    {
+        return BitPackLib.unpackInt40(word, bitIndex);
+    }
+
+    function unpackInt48(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int48 value)
+    {
+        return BitPackLib.unpackInt48(word, bitIndex);
+    }
+
+    function unpackInt56(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int56 value)
+    {
+        return BitPackLib.unpackInt56(word, bitIndex);
+    }
+
+    function unpackInt64(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int64 value)
+    {
+        return BitPackLib.unpackInt64(word, bitIndex);
+    }
+
+    function unpackInt72(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int72 value)
+    {
+        return BitPackLib.unpackInt72(word, bitIndex);
+    }
+
+    function unpackInt80(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int80 value)
+    {
+        return BitPackLib.unpackInt80(word, bitIndex);
+    }
+
+    function unpackInt88(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int88 value)
+    {
+        return BitPackLib.unpackInt88(word, bitIndex);
+    }
+
+    function unpackInt96(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int96 value)
+    {
+        return BitPackLib.unpackInt96(word, bitIndex);
+    }
+
+    function unpackInt104(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int104 value)
+    {
+        return BitPackLib.unpackInt104(word, bitIndex);
+    }
+
+    function unpackInt112(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int112 value)
+    {
+        return BitPackLib.unpackInt112(word, bitIndex);
+    }
+
+    function unpackInt120(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int120 value)
+    {
+        return BitPackLib.unpackInt120(word, bitIndex);
+    }
+
+    function unpackInt128(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int128 value)
+    {
+        return BitPackLib.unpackInt128(word, bitIndex);
+    }
+
+    function unpackInt136(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int136 value)
+    {
+        return BitPackLib.unpackInt136(word, bitIndex);
+    }
+
+    function unpackInt144(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int144 value)
+    {
+        return BitPackLib.unpackInt144(word, bitIndex);
+    }
+
+    function unpackInt152(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int152 value)
+    {
+        return BitPackLib.unpackInt152(word, bitIndex);
+    }
+
+    function unpackInt160(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int160 value)
+    {
+        return BitPackLib.unpackInt160(word, bitIndex);
+    }
+
+    function unpackInt168(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int168 value)
+    {
+        return BitPackLib.unpackInt168(word, bitIndex);
+    }
+
+    function unpackInt176(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int176 value)
+    {
+        return BitPackLib.unpackInt176(word, bitIndex);
+    }
+
+    function unpackInt184(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int184 value)
+    {
+        return BitPackLib.unpackInt184(word, bitIndex);
+    }
+
+    function unpackInt192(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int192 value)
+    {
+        return BitPackLib.unpackInt192(word, bitIndex);
+    }
+
+    function unpackInt200(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int200 value)
+    {
+        return BitPackLib.unpackInt200(word, bitIndex);
+    }
+
+    function unpackInt208(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int208 value)
+    {
+        return BitPackLib.unpackInt208(word, bitIndex);
+    }
+
+    function unpackInt216(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int216 value)
+    {
+        return BitPackLib.unpackInt216(word, bitIndex);
+    }
+
+    function unpackInt224(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int224 value)
+    {
+        return BitPackLib.unpackInt224(word, bitIndex);
+    }
+
+    function unpackInt232(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int232 value)
+    {
+        return BitPackLib.unpackInt232(word, bitIndex);
+    }
+
+    function unpackInt240(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int240 value)
+    {
+        return BitPackLib.unpackInt240(word, bitIndex);
+    }
+
+    function unpackInt248(bytes32 word, uint256 bitIndex)
+        public
+        pure
+        returns (int248 value)
+    {
+        return BitPackLib.unpackInt248(word, bitIndex);
     }
 }

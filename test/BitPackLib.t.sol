@@ -931,4 +931,873 @@ contract BitPackLibTest is Test {
         uint248 newValue = bpli.unpackUint248(newWord, bitIndex);
         assertEq(newValue, value);
     }
+
+    // ============================================================
+    //                       PACK/UNPACK INT
+    // ============================================================
+
+    function testPackInt8() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt8(bytes32(0), int8(0x69), 0);
+
+        assertEq(
+            newWord,
+            0x6900000000000000000000000000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 8);
+    }
+
+    function testUnpackInt8() public {
+        (bytes32 newWord,) = bpli.packInt8(bytes32(0), int8(0x69), 0);
+        int8 value = bpli.unpackInt8(newWord, 0);
+        assertEq(value, int8(0x69));
+    }
+
+    function testPackUnpackInt8(int8 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 248);
+        (bytes32 newWord,) = bpli.packInt8(bytes32(0), value, bitIndex);
+        int8 newValue = bpli.unpackInt8(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt16() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt16(bytes32(0), int16(0x6969), 0);
+
+        assertEq(
+            newWord,
+            0x6969000000000000000000000000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 16);
+    }
+
+    function testUnpackInt16() public {
+        (bytes32 newWord,) = bpli.packInt16(bytes32(0), int16(0x6969), 0);
+        int16 value = bpli.unpackInt16(newWord, 0);
+        assertEq(value, int16(0x6969));
+    }
+
+    function testPackUnpackInt16(int16 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 240);
+        (bytes32 newWord,) = bpli.packInt16(bytes32(0), value, bitIndex);
+        int16 newValue = bpli.unpackInt16(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt24() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt24(bytes32(0), int24(0x696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969690000000000000000000000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 24);
+    }
+
+    function testUnpackInt24() public {
+        (bytes32 newWord,) = bpli.packInt24(bytes32(0), int24(0x696969), 0);
+        int24 value = bpli.unpackInt24(newWord, 0);
+        assertEq(value, int24(0x696969));
+    }
+
+    function testPackUnpackInt24(int24 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 232);
+        (bytes32 newWord,) = bpli.packInt24(bytes32(0), value, bitIndex);
+        int24 newValue = bpli.unpackInt24(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt32() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt32(bytes32(0), int32(0x69696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696900000000000000000000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 32);
+    }
+
+    function testUnpackInt32() public {
+        (bytes32 newWord,) = bpli.packInt32(bytes32(0), int32(0x69696969), 0);
+        int32 value = bpli.unpackInt32(newWord, 0);
+        assertEq(value, int32(0x69696969));
+    }
+
+    function testPackUnpackInt32(int32 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 224);
+        (bytes32 newWord,) = bpli.packInt32(bytes32(0), value, bitIndex);
+        int32 newValue = bpli.unpackInt32(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt40() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt40(bytes32(0), int40(0x6969696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696969000000000000000000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 40);
+    }
+
+    function testUnpackInt40() public {
+        (bytes32 newWord,) = bpli.packInt40(bytes32(0), int40(0x6969696969), 0);
+        int40 value = bpli.unpackInt40(newWord, 0);
+        assertEq(value, int40(0x6969696969));
+    }
+
+    function testPackUnpackInt40(int40 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 216);
+        (bytes32 newWord,) = bpli.packInt40(bytes32(0), value, bitIndex);
+        int40 newValue = bpli.unpackInt40(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt48() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt48(bytes32(0), int48(0x696969696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696969690000000000000000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 48);
+    }
+
+    function testUnpackInt48() public {
+        (bytes32 newWord,) =
+            bpli.packInt48(bytes32(0), int48(0x696969696969), 0);
+        int48 value = bpli.unpackInt48(newWord, 0);
+        assertEq(value, int48(0x696969696969));
+    }
+
+    function testPackUnpackInt48(int48 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 208);
+        (bytes32 newWord,) = bpli.packInt48(bytes32(0), value, bitIndex);
+        int48 newValue = bpli.unpackInt48(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt56() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt56(bytes32(0), int56(0x69696969696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696969696900000000000000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 56);
+    }
+
+    function testUnpackInt56() public {
+        (bytes32 newWord,) =
+            bpli.packInt56(bytes32(0), int56(0x69696969696969), 0);
+        int56 value = bpli.unpackInt56(newWord, 0);
+        assertEq(value, int56(0x69696969696969));
+    }
+
+    function testPackUnpackInt56(int56 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 200);
+        (bytes32 newWord,) = bpli.packInt56(bytes32(0), value, bitIndex);
+        int56 newValue = bpli.unpackInt56(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt64() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt64(bytes32(0), int64(0x6969696969696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696969696969000000000000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 64);
+    }
+
+    function testUnpackInt64() public {
+        (bytes32 newWord,) =
+            bpli.packInt64(bytes32(0), int64(0x6969696969696969), 0);
+        int64 value = bpli.unpackInt64(newWord, 0);
+        assertEq(value, int64(0x6969696969696969));
+    }
+
+    function testPackUnpackInt64(int64 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 192);
+        (bytes32 newWord,) = bpli.packInt64(bytes32(0), value, bitIndex);
+        int64 newValue = bpli.unpackInt64(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt72() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt72(bytes32(0), int72(0x696969696969696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696969696969690000000000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 72);
+    }
+
+    function testUnpackInt72() public {
+        (bytes32 newWord,) =
+            bpli.packInt72(bytes32(0), int72(0x696969696969696969), 0);
+        int72 value = bpli.unpackInt72(newWord, 0);
+        assertEq(value, int72(0x696969696969696969));
+    }
+
+    function testPackUnpackInt72(int72 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 184);
+        (bytes32 newWord,) = bpli.packInt72(bytes32(0), value, bitIndex);
+        int72 newValue = bpli.unpackInt72(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt80() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt80(bytes32(0), int80(0x69696969696969696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696969696969696900000000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 80);
+    }
+
+    function testUnpackInt80() public {
+        (bytes32 newWord,) =
+            bpli.packInt80(bytes32(0), int80(0x69696969696969696969), 0);
+        int80 value = bpli.unpackInt80(newWord, 0);
+        assertEq(value, int80(0x69696969696969696969));
+    }
+
+    function testPackUnpackInt80(int80 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 176);
+        (bytes32 newWord,) = bpli.packInt80(bytes32(0), value, bitIndex);
+        int80 newValue = bpli.unpackInt80(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt88() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt88(bytes32(0), int88(0x6969696969696969696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969000000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 88);
+    }
+
+    function testUnpackInt88() public {
+        (bytes32 newWord,) =
+            bpli.packInt88(bytes32(0), int88(0x6969696969696969696969), 0);
+        int88 value = bpli.unpackInt88(newWord, 0);
+        assertEq(value, int88(0x6969696969696969696969));
+    }
+
+    function testPackUnpackInt88(int88 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 168);
+        (bytes32 newWord,) = bpli.packInt88(bytes32(0), value, bitIndex);
+        int88 newValue = bpli.unpackInt88(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt96() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt96(bytes32(0), int96(0x696969696969696969696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969690000000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 96);
+    }
+
+    function testUnpackInt96() public {
+        (bytes32 newWord,) =
+            bpli.packInt96(bytes32(0), int96(0x696969696969696969696969), 0);
+        int96 value = bpli.unpackInt96(newWord, 0);
+        assertEq(value, int96(0x696969696969696969696969));
+    }
+
+    function testPackUnpackInt96(int96 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 160);
+        (bytes32 newWord,) = bpli.packInt96(bytes32(0), value, bitIndex);
+        int96 newValue = bpli.unpackInt96(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt104() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt104(bytes32(0), int104(0x69696969696969696969696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696900000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 104);
+    }
+
+    function testUnpackInt104() public {
+        (bytes32 newWord,) =
+            bpli.packInt104(bytes32(0), int104(0x69696969696969696969696969), 0);
+        int104 value = bpli.unpackInt104(newWord, 0);
+        assertEq(value, int104(0x69696969696969696969696969));
+    }
+
+    function testPackUnpackInt104(int104 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 152);
+        (bytes32 newWord,) = bpli.packInt104(bytes32(0), value, bitIndex);
+        int104 newValue = bpli.unpackInt104(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt112() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt112(bytes32(0), int112(0x6969696969696969696969696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969000000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 112);
+    }
+
+    function testUnpackInt112() public {
+        (bytes32 newWord,) =
+            bpli.packInt112(bytes32(0), int112(0x6969696969696969696969696969), 0);
+        int112 value = bpli.unpackInt112(newWord, 0);
+        assertEq(value, int112(0x6969696969696969696969696969));
+    }
+
+    function testPackUnpackInt112(int112 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 144);
+        (bytes32 newWord,) = bpli.packInt112(bytes32(0), value, bitIndex);
+        int112 newValue = bpli.unpackInt112(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt120() public {
+        (bytes32 newWord, uint256 freeBitIndex) =
+            bpli.packInt120(bytes32(0), int120(0x696969696969696969696969696969), 0);
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969690000000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 120);
+    }
+
+    function testUnpackInt120() public {
+        (bytes32 newWord,) =
+            bpli.packInt120(bytes32(0), int120(0x696969696969696969696969696969), 0);
+        int120 value = bpli.unpackInt120(newWord, 0);
+        assertEq(value, int120(0x696969696969696969696969696969));
+    }
+
+    function testPackUnpackInt120(int120 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 136);
+        (bytes32 newWord,) = bpli.packInt120(bytes32(0), value, bitIndex);
+        int120 newValue = bpli.unpackInt120(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt128() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt128(
+            bytes32(0), int128(0x69696969696969696969696969696969), 0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696900000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 128);
+    }
+
+    function testUnpackInt128() public {
+        (bytes32 newWord,) = bpli.packInt128(
+            bytes32(0), int128(0x69696969696969696969696969696969), 0
+        );
+        int128 value = bpli.unpackInt128(newWord, 0);
+        assertEq(value, int128(0x69696969696969696969696969696969));
+    }
+
+    function testPackUnpackInt128(int128 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 128);
+        (bytes32 newWord,) = bpli.packInt128(bytes32(0), value, bitIndex);
+        int128 newValue = bpli.unpackInt128(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt136() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt136(
+            bytes32(0), int136(0x6969696969696969696969696969696969), 0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969000000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 136);
+    }
+
+    function testUnpackInt136() public {
+        (bytes32 newWord,) = bpli.packInt136(
+            bytes32(0), int136(0x6969696969696969696969696969696969), 0
+        );
+        int136 value = bpli.unpackInt136(newWord, 0);
+        assertEq(value, int136(0x6969696969696969696969696969696969));
+    }
+
+    function testPackUnpackInt136(int136 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 120);
+        (bytes32 newWord,) = bpli.packInt136(bytes32(0), value, bitIndex);
+        int136 newValue = bpli.unpackInt136(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt144() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt144(
+            bytes32(0), int144(0x696969696969696969696969696969696969), 0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969690000000000000000000000000000
+        );
+        assertEq(freeBitIndex, 144);
+    }
+
+    function testUnpackInt144() public {
+        (bytes32 newWord,) = bpli.packInt144(
+            bytes32(0), int144(0x696969696969696969696969696969696969), 0
+        );
+        int144 value = bpli.unpackInt144(newWord, 0);
+        assertEq(value, int144(0x696969696969696969696969696969696969));
+    }
+
+    function testPackUnpackInt144(int144 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 112);
+        (bytes32 newWord,) = bpli.packInt144(bytes32(0), value, bitIndex);
+        int144 newValue = bpli.unpackInt144(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt152() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt152(
+            bytes32(0), int152(0x69696969696969696969696969696969696969), 0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696900000000000000000000000000
+        );
+        assertEq(freeBitIndex, 152);
+    }
+
+    function testUnpackInt152() public {
+        (bytes32 newWord,) = bpli.packInt152(
+            bytes32(0), int152(0x69696969696969696969696969696969696969), 0
+        );
+        int152 value = bpli.unpackInt152(newWord, 0);
+        assertEq(value, int152(0x69696969696969696969696969696969696969));
+    }
+
+    function testPackUnpackInt152(int152 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 104);
+        (bytes32 newWord,) = bpli.packInt152(bytes32(0), value, bitIndex);
+        int152 newValue = bpli.unpackInt152(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt160() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt160(
+            // Compiler thinks it's an address so have to cast to uint160 before int160
+            bytes32(0),
+            int160(uint160(0x6969696969696969696969696969696969696969)),
+            0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969000000000000000000000000
+        );
+        assertEq(freeBitIndex, 160);
+    }
+
+    function testUnpackInt160() public {
+        (bytes32 newWord,) = bpli.packInt160(
+            // Compiler thinks it's an address so have to cast to uint160 before int160
+            bytes32(0),
+            int160(uint160(0x6969696969696969696969696969696969696969)),
+            0
+        );
+        int160 value = bpli.unpackInt160(newWord, 0);
+        // Compiler thinks it's an address so have to cast to uint160 before int160
+        assertEq(
+            value, int160(uint160(0x6969696969696969696969696969696969696969))
+        );
+    }
+
+    function testPackUnpackInt160(int160 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 96);
+        (bytes32 newWord,) = bpli.packInt160(bytes32(0), value, bitIndex);
+        int160 newValue = bpli.unpackInt160(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt168() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt168(
+            bytes32(0), int168(0x696969696969696969696969696969696969696969), 0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969690000000000000000000000
+        );
+        assertEq(freeBitIndex, 168);
+    }
+
+    function testUnpackInt168() public {
+        (bytes32 newWord,) = bpli.packInt168(
+            bytes32(0), int168(0x696969696969696969696969696969696969696969), 0
+        );
+        int168 value = bpli.unpackInt168(newWord, 0);
+        assertEq(value, int168(0x696969696969696969696969696969696969696969));
+    }
+
+    function testPackUnpackInt168(int168 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 88);
+        (bytes32 newWord,) = bpli.packInt168(bytes32(0), value, bitIndex);
+        int168 newValue = bpli.unpackInt168(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt176() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt176(
+            bytes32(0), int176(0x69696969696969696969696969696969696969696969), 0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969696900000000000000000000
+        );
+        assertEq(freeBitIndex, 176);
+    }
+
+    function testUnpackInt176() public {
+        (bytes32 newWord,) = bpli.packInt176(
+            bytes32(0), int176(0x69696969696969696969696969696969696969696969), 0
+        );
+        int176 value = bpli.unpackInt176(newWord, 0);
+        assertEq(value, int176(0x69696969696969696969696969696969696969696969));
+    }
+
+    function testPackUnpackInt176(int176 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 80);
+        (bytes32 newWord,) = bpli.packInt176(bytes32(0), value, bitIndex);
+        int176 newValue = bpli.unpackInt176(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt184() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt184(
+            bytes32(0), int184(0x6969696969696969696969696969696969696969696969), 0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969696969000000000000000000
+        );
+        assertEq(freeBitIndex, 184);
+    }
+
+    function testUnpackInt184() public {
+        (bytes32 newWord,) = bpli.packInt184(
+            bytes32(0), int184(0x6969696969696969696969696969696969696969696969), 0
+        );
+        int184 value = bpli.unpackInt184(newWord, 0);
+        assertEq(
+            value, int184(0x6969696969696969696969696969696969696969696969)
+        );
+    }
+
+    function testPackUnpackInt184(int184 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 72);
+        (bytes32 newWord,) = bpli.packInt184(bytes32(0), value, bitIndex);
+        int184 newValue = bpli.unpackInt184(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt192() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt192(
+            bytes32(0),
+            int192(0x696969696969696969696969696969696969696969696969),
+            0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969696969690000000000000000
+        );
+        assertEq(freeBitIndex, 192);
+    }
+
+    function testUnpackInt192() public {
+        (bytes32 newWord,) = bpli.packInt192(
+            bytes32(0),
+            int192(0x696969696969696969696969696969696969696969696969),
+            0
+        );
+        int192 value = bpli.unpackInt192(newWord, 0);
+        assertEq(
+            value, int192(0x696969696969696969696969696969696969696969696969)
+        );
+    }
+
+    function testPackUnpackInt192(int192 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 64);
+        (bytes32 newWord,) = bpli.packInt192(bytes32(0), value, bitIndex);
+        int192 newValue = bpli.unpackInt192(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt200() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt200(
+            bytes32(0),
+            int200(0x69696969696969696969696969696969696969696969696969),
+            0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969696969696900000000000000
+        );
+        assertEq(freeBitIndex, 200);
+    }
+
+    function testUnpackInt200() public {
+        (bytes32 newWord,) = bpli.packInt200(
+            bytes32(0),
+            int200(0x69696969696969696969696969696969696969696969696969),
+            0
+        );
+        int200 value = bpli.unpackInt200(newWord, 0);
+        assertEq(
+            value, int200(0x69696969696969696969696969696969696969696969696969)
+        );
+    }
+
+    function testPackUnpackInt200(int200 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 56);
+        (bytes32 newWord,) = bpli.packInt200(bytes32(0), value, bitIndex);
+        int200 newValue = bpli.unpackInt200(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt208() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt208(
+            bytes32(0),
+            int208(0x6969696969696969696969696969696969696969696969696969),
+            0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969696969696969000000000000
+        );
+        assertEq(freeBitIndex, 208);
+    }
+
+    function testUnpackInt208() public {
+        (bytes32 newWord,) = bpli.packInt208(
+            bytes32(0),
+            int208(0x6969696969696969696969696969696969696969696969696969),
+            0
+        );
+        int208 value = bpli.unpackInt208(newWord, 0);
+        assertEq(
+            value, int208(0x6969696969696969696969696969696969696969696969696969)
+        );
+    }
+
+    function testPackUnpackInt208(int208 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 48);
+        (bytes32 newWord,) = bpli.packInt208(bytes32(0), value, bitIndex);
+        int208 newValue = bpli.unpackInt208(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt216() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt216(
+            bytes32(0),
+            int216(0x696969696969696969696969696969696969696969696969696969),
+            0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969696969696969690000000000
+        );
+        assertEq(freeBitIndex, 216);
+    }
+
+    function testUnpackInt216() public {
+        (bytes32 newWord,) = bpli.packInt216(
+            bytes32(0),
+            int216(0x696969696969696969696969696969696969696969696969696969),
+            0
+        );
+        int216 value = bpli.unpackInt216(newWord, 0);
+        assertEq(
+            value, int216(0x696969696969696969696969696969696969696969696969696969)
+        );
+    }
+
+    function testPackUnpackInt216(int216 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 40);
+        (bytes32 newWord,) = bpli.packInt216(bytes32(0), value, bitIndex);
+        int216 newValue = bpli.unpackInt216(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt224() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt224(
+            bytes32(0),
+            int224(0x69696969696969696969696969696969696969696969696969696969),
+            0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969696969696969696900000000
+        );
+        assertEq(freeBitIndex, 224);
+    }
+
+    function testUnpackInt224() public {
+        (bytes32 newWord,) = bpli.packInt224(
+            bytes32(0),
+            int224(0x69696969696969696969696969696969696969696969696969696969),
+            0
+        );
+        int224 value = bpli.unpackInt224(newWord, 0);
+        assertEq(
+            value,
+            int224(0x69696969696969696969696969696969696969696969696969696969)
+        );
+    }
+
+    function testPackUnpackInt224(int224 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 32);
+        (bytes32 newWord,) = bpli.packInt224(bytes32(0), value, bitIndex);
+        int224 newValue = bpli.unpackInt224(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt232() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt232(
+            bytes32(0),
+            int232(0x6969696969696969696969696969696969696969696969696969696969),
+            0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969696969696969696969000000
+        );
+        assertEq(freeBitIndex, 232);
+    }
+
+    function testUnpackInt232() public {
+        (bytes32 newWord,) = bpli.packInt232(
+            bytes32(0),
+            int232(0x6969696969696969696969696969696969696969696969696969696969),
+            0
+        );
+        int232 value = bpli.unpackInt232(newWord, 0);
+        assertEq(
+            value,
+            int232(0x6969696969696969696969696969696969696969696969696969696969)
+        );
+    }
+
+    function testPackUnpackInt232(int232 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 24);
+        (bytes32 newWord,) = bpli.packInt232(bytes32(0), value, bitIndex);
+        int232 newValue = bpli.unpackInt232(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt240() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt240(
+            bytes32(0),
+            int240(0x696969696969696969696969696969696969696969696969696969696969),
+            0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969696969696969696969690000
+        );
+        assertEq(freeBitIndex, 240);
+    }
+
+    function testUnpackInt240() public {
+        (bytes32 newWord,) = bpli.packInt240(
+            bytes32(0),
+            int240(0x696969696969696969696969696969696969696969696969696969696969),
+            0
+        );
+        int240 value = bpli.unpackInt240(newWord, 0);
+        assertEq(
+            value,
+            int240(0x696969696969696969696969696969696969696969696969696969696969)
+        );
+    }
+
+    function testPackUnpackInt240(int240 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 16);
+        (bytes32 newWord,) = bpli.packInt240(bytes32(0), value, bitIndex);
+        int240 newValue = bpli.unpackInt240(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
+
+    function testPackInt248() public {
+        (bytes32 newWord, uint256 freeBitIndex) = bpli.packInt248(
+            bytes32(0),
+            int248(0x69696969696969696969696969696969696969696969696969696969696969),
+            0
+        );
+
+        assertEq(
+            newWord,
+            0x6969696969696969696969696969696969696969696969696969696969696900
+        );
+        assertEq(freeBitIndex, 248);
+    }
+
+    function testUnpackInt248() public {
+        (bytes32 newWord,) = bpli.packInt248(
+            bytes32(0),
+            int248(0x69696969696969696969696969696969696969696969696969696969696969),
+            0
+        );
+        int248 value = bpli.unpackInt248(newWord, 0);
+        assertEq(
+            value,
+            int248(0x69696969696969696969696969696969696969696969696969696969696969)
+        );
+    }
+
+    function testPackUnpackInt248(int248 value, uint8 bitIndex) public {
+        vm.assume(bitIndex <= 8);
+        (bytes32 newWord,) = bpli.packInt248(bytes32(0), value, bitIndex);
+        int248 newValue = bpli.unpackInt248(newWord, bitIndex);
+        assertEq(newValue, value);
+    }
 }
