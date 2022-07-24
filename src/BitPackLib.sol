@@ -9,7 +9,7 @@ library BitPackLib {
     // Assumes bitIndex <= 255
     function packBool(bytes32 word, bool value, uint256 bitIndex) internal pure returns (bytes32 newWord, uint256 freeBitIndex) {
         assembly {
-            let shift := sub(0xFE, bitIndex)
+            let shift := sub(0xFF, bitIndex)
             newWord := or(word, shl(shift, value))
             freeBitIndex := add(bitIndex, 0x01)
         }
