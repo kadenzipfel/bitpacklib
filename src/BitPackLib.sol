@@ -35,4 +35,12 @@ library BitPackLib {
             value := shr(shift, and(shl(shift, shr(0xFE, not(0))), word))
         }
     }
+
+    // Assumes bitIndex is < 96
+    function unpackAddress(bytes32 word, uint256 bitIndex) internal pure returns (address value) {
+        assembly {
+            let shift := sub(0x60, bitIndex)
+            value := shr(shift, and(shl(shift, shr(0x60, not(0))), word))
+        }
+    }
 }
