@@ -28,7 +28,7 @@ library BitPackLib {
     //                       UNPACK METHODS
     // ============================================================
 
-    // Assumes bitIndex is < 255
+    // Assumes bitIndex is <= 255
     function unpackBool(bytes32 word, uint256 bitIndex) internal pure returns (bool value) {
         assembly {
             let shift := sub(0xFF, bitIndex)
@@ -36,7 +36,7 @@ library BitPackLib {
         }
     }
 
-    // Assumes bitIndex is < 96
+    // Assumes bitIndex is <= 96
     function unpackAddress(bytes32 word, uint256 bitIndex) internal pure returns (address value) {
         assembly {
             let shift := sub(0x60, bitIndex)
